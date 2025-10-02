@@ -182,13 +182,6 @@
     "text": "Step 3: Verify Installation\nAfter installing all packages, verify that everything is working correctly:\n# Load required libraries\nlibrary(DSI)\nlibrary(DSOpal)\nlibrary(dsBaseClient)\nlibrary(dsHelper)\nlibrary(dsOMOPClient)\nlibrary(dsOMOPHelper)\nlibrary(metafor)\n\n# Check versions\nsessionInfo()\nIf all libraries load without errors, you’re ready to start the workshop!"
   },
   {
-    "objectID": "setup.html#troubleshooting",
-    "href": "setup.html#troubleshooting",
-    "title": "Setup Instructions",
-    "section": "Troubleshooting",
-    "text": "Troubleshooting\n\nInstallation Issues\nIf you encounter problems during package installation:\n\nUpdate R: Make sure you have R version 4.0.0 or higher\nUpdate RStudio: Use the latest version of RStudio\nCheck dependencies: Some packages require system dependencies (e.g., Rtools on Windows)\nGitHub rate limits: If GitHub installations fail, wait a few minutes and try again\n\n\n\nWindows Users\nWindows users may need to install Rtools to compile packages from source.\n\n\nMac Users\nMac users may need to install Xcode Command Line Tools. Open Terminal and run:\nxcode-select --install\n\n\nLinux Users\nLinux users may need to install additional system libraries. For Ubuntu/Debian:\nsudo apt-get install libssl-dev libcurl4-openssl-dev libxml2-dev"
-  },
-  {
     "objectID": "setup.html#getting-help",
     "href": "setup.html#getting-help",
     "title": "Setup Instructions",
