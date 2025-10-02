@@ -11,6 +11,8 @@ website:
     left:
       - text: "Home"
         href: index.qmd
+      - text: "Setup"
+        href: setup.qmd
       - text: "DataSHIELD Basics"
         menu:
           - text: "Slides"

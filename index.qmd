@@ -70,6 +70,13 @@ This combination of technologies enables powerful federated analysis with strong
 - **Standardization**: OMOP CDM ensures consistent structure and meaning across networks.
 - **Reproducibility**: Shared code and common semantics for comparable results.
 
+## Getting Started
+
+::: {.callout-important}
+## Before You Begin
+Make sure you have completed the [Setup Instructions](setup.qmd) to install R, RStudio, and all required packages.
+:::
+
 ## Workshop content
 
 :::: {.columns}

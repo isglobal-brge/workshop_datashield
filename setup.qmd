@@ -1,0 +1,84 @@
+---
+title: "Setup Instructions"
+---
+
+This page provides simple instructions to install R and all required packages for the workshop.
+
+## Step 1: Install R and RStudio
+
+### Install R
+1. Go to [CRAN](https://cran.r-project.org/)
+2. Download R for your operating system (Windows, Mac, or Linux)
+3. Run the installer and follow the instructions
+
+### Install RStudio
+1. Go to [Posit RStudio](https://posit.co/download/rstudio-desktop/)
+2. Download the free RStudio Desktop
+3. Install RStudio after R is installed
+
+## Step 2: Install Required R Packages
+
+Open RStudio and run the following commands to install all necessary packages:
+
+```r
+# Install devtools for GitHub installations
+install.packages("devtools")
+
+# Core DataSHIELD packages
+install.packages("DSI", repos = c("https://cran.obiba.org", "https://cloud.r-project.org"))
+install.packages("DSOpal", repos = c("https://cran.obiba.org", "https://cloud.r-project.org"))
+devtools::install_github("datashield/dsBaseClient", force = TRUE)
+
+# Opal administration packages
+install.packages("opalr")
+
+# DataSHIELD helper packages
+devtools::install_github("timcadman/ds-helper")
+
+# dsOMOP packages
+devtools::install_github('isglobal-brge/dsOMOPClient')
+devtools::install_github('isglobal-brge/dsOMOPHelper')
+
+# Statistical analysis packages
+install.packages("metafor")
+
+# Basic data manipulation (if not already installed)
+install.packages("readr")
+install.packages("knitr")
+
+# Additional packages for advanced workshops (optional)
+install.packages("BiocManager")
+BiocManager::install("dsOmicsClient", ask = FALSE)
+```
+
+## Step 3: Verify Installation
+
+After installing all packages, verify that everything is working correctly:
+
+```r
+# Load required libraries
+library(DSI)
+library(DSOpal)
+library(dsBaseClient)
+library(dsHelper)
+library(dsOMOPClient)
+library(dsOMOPHelper)
+library(metafor)
+
+# Check versions
+sessionInfo()
+```
+
+If all libraries load without errors, you're ready to start the workshop!
+
+## Getting Help
+
+If you continue to experience issues:
+
+- Check the [DataSHIELD documentation](https://data2knowledge.atlassian.net/wiki/spaces/DSDEV/overview)
+- Visit the [DataSHIELD forums](https://datashield.discourse.group/)
+- Contact the workshop organizers
+
+---
+
+**Next:** Once setup is complete, proceed to the [DataSHIELD Introduction](datashield_slides.qmd) to begin the workshop.

@@ -294,6 +294,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./setup.html"> 
+<span class="menu-text">Setup</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-datashield-basics" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">DataSHIELD Basics</span>
@@ -1361,7 +1365,7 @@ $`opal-demo`$length
 
 $`opal-demo`$`quantiles &amp; mean`
       5%      10%      25%      50%      75%      90%      95%     Mean 
- 90.4000  94.7000 103.7500 112.5000 127.7500 142.3000 148.6500 116.3448 </code></pre>
+ 91.0000  93.4000 100.5000 111.5000 128.0000 143.9000 147.1500 115.2586 </code></pre>
 </div>
 </div>
 <p>Let’s now use the <code>renameVars</code> from the <code>dsHelper</code> package, which we have seen before, to rename the variable to <code>sbp</code> for convenience:</p>
@@ -1392,19 +1396,19 @@ $`opal-demo`$`quantiles &amp; mean`
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$breaks
- [1]  76.01433  85.23812  94.46190 103.68568 112.90946 122.13325 131.35703
- [8] 140.58081 149.80460 159.02838 168.25216
+ [1]  72.21362  80.77243  89.33124  97.89005 106.44886 115.00767 123.56648
+ [8] 132.12529 140.68410 149.24291 157.80172
 
 $counts
- [1]  0  4  9 14 10  7  5  4  0  0
+ [1]  0  0  8  9 13  8  7  3  6  0
 
 $density
- [1] 0.000000000 0.007476923 0.016823078 0.026169232 0.018692309 0.013084616
- [7] 0.009346154 0.007476923 0.000000000 0.000000000
+ [1] 0.00000000 0.00000000 0.01611568 0.01813014 0.02618798 0.01611568
+ [7] 0.01410122 0.00604338 0.01208676 0.00000000
 
 $mids
- [1]  80.62622  89.85001  99.07379 108.29757 117.52136 126.74514 135.96892
- [8] 145.19270 154.41649 163.64027
+ [1]  76.49302  85.05183  93.61064 102.16945 110.72826 119.28707 127.84588
+ [8] 136.40469 144.96350 153.52231
 
 $xname
 [1] "xvect"

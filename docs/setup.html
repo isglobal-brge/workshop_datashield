@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DataSHIELD Workshop: Data Science Without Borders – DataSHIELD Workshop</title>
+<title>Setup Instructions – DataSHIELD Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -295,7 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./setup.html"> 
+    <a class="nav-link active" href="./setup.html" aria-current="page"> 
 <span class="menu-text">Setup</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -349,13 +349,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#analysis-using-the-resources" id="toc-analysis-using-the-resources" class="nav-link active" data-scroll-target="#analysis-using-the-resources">Analysis using the <code>resources</code></a></li>
-  <li><a href="#survival-analysis" id="toc-survival-analysis" class="nav-link" data-scroll-target="#survival-analysis">Survival analysis</a></li>
-  <li><a href="#omic-data-analysis" id="toc-omic-data-analysis" class="nav-link" data-scroll-target="#omic-data-analysis">Omic data analysis</a></li>
-  <li><a href="#exercise-cordelia-project-analysis" id="toc-exercise-cordelia-project-analysis" class="nav-link" data-scroll-target="#exercise-cordelia-project-analysis">Exercise: CORDELIA Project Analysis</a>
+  <li><a href="#step-1-install-r-and-rstudio" id="toc-step-1-install-r-and-rstudio" class="nav-link active" data-scroll-target="#step-1-install-r-and-rstudio">Step 1: Install R and RStudio</a>
   <ul class="collapse">
-  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">Tasks</a></li>
+  <li><a href="#install-r" id="toc-install-r" class="nav-link" data-scroll-target="#install-r">Install R</a></li>
+  <li><a href="#install-rstudio" id="toc-install-rstudio" class="nav-link" data-scroll-target="#install-rstudio">Install RStudio</a></li>
   </ul></li>
+  <li><a href="#step-2-install-required-r-packages" id="toc-step-2-install-required-r-packages" class="nav-link" data-scroll-target="#step-2-install-required-r-packages">Step 2: Install Required R Packages</a></li>
+  <li><a href="#step-3-verify-installation" id="toc-step-3-verify-installation" class="nav-link" data-scroll-target="#step-3-verify-installation">Step 3: Verify Installation</a></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting Help</a></li>
   </ul>
 </nav>
     </div>
@@ -365,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">DataSHIELD Workshop: Data Science Without Borders</h1>
+<h1 class="title">Setup Instructions</h1>
 </div>
 
 
@@ -382,192 +383,86 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="analysis-using-the-resources" class="level1">
-<h1>Analysis using the <code>resources</code></h1>
-<p>For more examples and detailed information about working with resources in DataSHIELD, please refer to the <a href="https://github.com/obiba/resources-workshop">Resources Workshop Repository</a>.</p>
-<p>Now, let us illustrate a similar analysis of the previous example using CNSIM datasets but having the data as a resource. Now the resources are available in a project called <code>RSRC</code> (see https://opal-demo.obiba.org/#/project/RSRC/resources). Now, we write all the require code in a single chunk:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DSOpal)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dsBaseClient)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare login data and resources to assign</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>builder <span class="ot">&lt;-</span> DSI<span class="sc">::</span><span class="fu">newDSLoginBuilder</span>()</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>builder<span class="sc">$</span><span class="fu">append</span>(<span class="at">server =</span> <span class="st">"study1"</span>, <span class="at">url =</span> <span class="st">"https://opal-demo.obiba.org"</span>, </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               <span class="at">user =</span> <span class="st">"dsuser"</span>, <span class="at">password =</span> <span class="st">"P@ssw0rd"</span>, </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">resource =</span> <span class="st">"RSRC.CNSIM1"</span>, <span class="at">profile =</span> <span class="st">"default"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#builder$append(server = "study2", url = "https://opal.isglobal.org/repo",</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#               user = "invited",  password = "12345678Aa@",, </span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#               resource = "CNSIM.CNSIM2", profile = "rock-inma")</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>logindata <span class="ot">&lt;-</span> builder<span class="sc">$</span><span class="fu">build</span>()</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># login and assign resources</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>conns <span class="ot">&lt;-</span> <span class="fu">datashield.login</span>(<span class="at">logins =</span> logindata, <span class="at">assign =</span> <span class="cn">TRUE</span>, <span class="at">symbol =</span> <span class="st">"res"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># assigned objects are of class ResourceClient (and others)</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ds.class</span>(<span class="st">"res"</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$study1
-[1] "SQLResourceClient" "ResourceClient"    "R6"               </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># coerce ResourceClient objects to data.frames</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (DataSHIELD config allows as.resource.data.frame() assignment function for the purpose of the demo)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">datashield.assign.expr</span>(conns, <span class="at">symbol =</span> <span class="st">"D"</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">expr =</span> <span class="fu">quote</span>(<span class="fu">as.resource.data.frame</span>(res, <span class="at">strict =</span> <span class="cn">TRUE</span>)))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ds.class</span>(<span class="st">"D"</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$study1
-[1] "data.frame"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ds.colnames</span>(<span class="st">"D"</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$study1
- [1] "id"                 "LAB_TSC"            "LAB_TRIG"          
- [4] "LAB_HDL"            "LAB_GLUC_ADJUSTED"  "PM_BMI_CONTINUOUS" 
- [7] "DIS_CVA"            "MEDI_LPD"           "DIS_DIAB"          
-[10] "DIS_AMI"            "GENDER"             "PM_BMI_CATEGORICAL"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># do usual dsBase analysis</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ds.summary</span>(<span class="st">'D$LAB_HDL'</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$study1
-$study1$class
-[1] "numeric"
-
-$study1$length
-[1] 2163
-
-$study1$`quantiles &amp; mean`
-      5%      10%      25%      50%      75%      90%      95%     Mean 
-0.875240 1.047400 1.300000 1.581000 1.844500 2.090000 2.210900 1.569416 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vector types are not necessarily the same depending on the data reader that was used</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ds.class</span>(<span class="st">'D$GENDER'</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$study1
-[1] "integer"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ds.asFactor</span>(<span class="st">'D$GENDER'</span>, <span class="st">'GENDER'</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$all.unique.levels
-[1] "0" "1"
-
-$return.message
-[1] "Data object &lt;GENDER&gt; correctly created in all specified data sources"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ds.summary</span>(<span class="st">'GENDER'</span>)</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$study1
-$study1$class
-[1] "factor"
-
-$study1$length
-[1] 2163
-
-$study1$categories
-[1] "0" "1"
-
-$study1$`count of '0'`
-[1] 1092
-
-$study1$`count of '1'`
-[1] 1071</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">ds.glm</span>(<span class="st">"DIS_DIAB ~ LAB_TRIG + GENDER"</span>, <span class="at">data =</span> <span class="st">"D"</span> , <span class="at">family=</span><span class="st">"binomial"</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mod<span class="sc">$</span>coeff</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>              Estimate Std. Error    z-value      p-value low0.95CI.LP
-(Intercept) -5.1696619  0.4549328 -11.363572 6.349427e-30   -6.0613138
-LAB_TRIG     0.3813891  0.1037611   3.675647 2.372471e-04    0.1780211
-GENDER      -0.2260851  0.4375864  -0.516664 6.053908e-01   -1.0837387
-            high0.95CI.LP        P_OR low0.95CI.P_OR high0.95CI.P_OR
-(Intercept)    -4.2780099 0.005654338    0.002325913      0.01368049
-LAB_TRIG        0.5847570 1.464317247    1.194850574      1.79455494
-GENDER          0.6315685 0.797650197    0.338328242      1.88055787</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datashield.logout</span>(conns)</span></code></pre></div>
-</div>
-</section>
-<section id="survival-analysis" class="level1">
-<h1>Survival analysis</h1>
-<p>Survival analysis can be performed in DataSHIELD using <code>dsSurvival</code> package (paper <a href="https://bmcresnotes.biomedcentral.com/articles/10.1186/s13104-022-06085-1">https://bmcresnotes.biomedcentral.com/articles/10.1186/s13104-022-06085-1</a>)</p>
-<p>Install the package which allows you to perform survival analysis in DataSHIELD</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"neelsoumya/dsSurvivalClient"</span>)</span></code></pre></div>
-</div>
-<p>Login to the Opal server which is having CORDELIA data. IMPORTANT: In order to have an Opal instance with dsSurvival package available, use the profile “lemon-donkey”</p>
-<p>Now, read how to perform surival analysis using DataSHIELD in this vignette</p>
-<p><a href="https://neelsoumya.github.io/dsSurvivalbookdown/">https://neelsoumya.github.io/dsSurvivalbookdown/</a></p>
-<p>TASK: Perform survival analysis of CORDELIA dataset where the time until death is in the variable called “todeath” and censoring variable is in the variable “death” to investigate whether smoking (variable “fumador”) is associated or not with mortality after adjusting for age (variable “edad”) NOTE: follow all steps in the vignette.</p>
-</section>
-<section id="omic-data-analysis" class="level1">
-<h1>Omic data analysis</h1>
-<p>Please refer to the <a href="https://isglobal-brge.github.io/resource_bookdown/Omic.html">Omic data analysis resource</a>.</p>
-</section>
-<section id="exercise-cordelia-project-analysis" class="level1">
-<h1>Exercise: CORDELIA Project Analysis</h1>
-<p>We have a database from the CORDELIA Project (https://cordeliaproject.net/), which collects clinical, demographic, and laboratory information about participants in order to study cardiovascular and metabolic risk factors. The dataset contains the following variables:</p>
-<ul>
-<li><strong>cohorte</strong> – Cohort (study group the subject belongs to)</li>
-<li><strong>codigo</strong> – Code / ID (unique identifier for each subject)</li>
-<li><strong>fec_inc</strong> – Date of inclusion (enrollment date in the study)</li>
-<li><strong>edad</strong> – Age</li>
-<li><strong>sexo</strong> – Sex (male/female)</li>
-<li><strong>est_civ</strong> – Marital status</li>
-<li><strong>niv_cult</strong> – Educational level</li>
-<li><strong>act_fis</strong> – Physical activity</li>
-<li><strong>fumador</strong> – Smoker (yes/no)</li>
-<li><strong>HTA</strong> – Hypertension (diagnosis)</li>
-<li><strong>HTA_TTO</strong> – Hypertension treatment (yes/no)</li>
-<li><strong>hipercol</strong> – Hypercholesterolemia (diagnosis)</li>
-<li><strong>col_tto</strong> – Cholesterol treatment (yes/no)</li>
-<li><strong>diabetes</strong> – Diabetes (diagnosis)</li>
-<li><strong>diab_tto</strong> – Diabetes treatment (yes/no)</li>
-<li><strong>insulin</strong> – Insulin treatment (yes/no)</li>
-<li><strong>diab_ado_ins</strong> – Diabetes treated with oral antidiabetics and insulin</li>
-<li><strong>peso</strong> – Weight (kg)</li>
-<li><strong>talla</strong> – Height (cm or m)</li>
-<li><strong>cintura</strong> – Waist circumference (cm)</li>
-<li><strong>IMC</strong> – Body Mass Index (BMI)</li>
-<li><strong>FC</strong> – Heart rate (beats per minute)</li>
-<li><strong>PAS_1</strong> – Systolic blood pressure (1st measurement)</li>
-<li><strong>PAS_2</strong> – Systolic blood pressure (2nd measurement)</li>
-<li><strong>PAD_1</strong> – Diastolic blood pressure (1st measurement)</li>
-<li><strong>PAD_2</strong> – Diastolic blood pressure (2nd measurement)</li>
-<li><strong>col_tot</strong> – Total cholesterol</li>
-<li><strong>hdl</strong> – HDL cholesterol</li>
-<li><strong>ldl</strong> – LDL cholesterol</li>
-<li><strong>trig</strong> – Triglycerides</li>
-<li><strong>creat</strong> – Creatinine</li>
-<li><strong>filt_glomer</strong> – Glomerular filtration rate (GFR)</li>
-<li><strong>glu</strong> – Blood glucose</li>
-<li><strong>exitusSeg</strong> – Death during follow-up (yes/no)</li>
-<li><strong>FechaExit_Seg</strong> – Date of death during follow-up</li>
-<li><strong>filt_glomer_CKD</strong> – Glomerular filtration rate classified for chronic kidney disease (CKD stages)</li>
-<li><strong>HTA_tot</strong> – Hypertension (overall variable, combining diagnosis/treatment)</li>
-<li><strong>diabetes_tot</strong> – Diabetes (overall variable, combining diagnosis/treatment)</li>
-<li><strong>todeath</strong> – Time to death (follow-up time until death)</li>
-<li><strong>death</strong> – Death (event indicator, yes/no)</li>
-</ul>
-<p>The data is stored on an Opal server within a project named <code>CORDELIA</code>, under the resource <code>cordelia45</code>, with access credentials provided as follows:</p>
-<ul>
-<li>Server: “https://opal-demo.obiba.org”</li>
-<li>User: “dsuser”</li>
-<li>Password: “P@ssw0rd”</li>
-</ul>
-<section id="tasks" class="level2">
-<h2 class="anchored" data-anchor-id="tasks">Tasks</h2>
-<p>Complete the following tasks:</p>
+<p>This page provides simple instructions to install R and all required packages for the workshop.</p>
+<section id="step-1-install-r-and-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-install-r-and-rstudio">Step 1: Install R and RStudio</h2>
+<section id="install-r" class="level3">
+<h3 class="anchored" data-anchor-id="install-r">Install R</h3>
 <ol type="1">
-<li>Load the data into a DataSHIELD session</li>
-<li>Summarize the variable <code>IMC</code></li>
-<li>Create a histogram of the variable <code>trig</code></li>
-<li>Assess whether <code>diabetes</code> is associated with <code>hipercol</code>, <code>IMC</code>, <code>hdl</code> and <code>col_tot</code> in separate univariate models</li>
-<li>Estimate a multivariate model for the variable <code>diabetes</code>, including only those variables that were significant in the univariate models</li>
+<li>Go to <a href="https://cran.r-project.org/">CRAN</a></li>
+<li>Download R for your operating system (Windows, Mac, or Linux)</li>
+<li>Run the installer and follow the instructions</li>
 </ol>
-
-
 </section>
+<section id="install-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="install-rstudio">Install RStudio</h3>
+<ol type="1">
+<li>Go to <a href="https://posit.co/download/rstudio-desktop/">Posit RStudio</a></li>
+<li>Download the free RStudio Desktop</li>
+<li>Install RStudio after R is installed</li>
+</ol>
+</section>
+</section>
+<section id="step-2-install-required-r-packages" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-install-required-r-packages">Step 2: Install Required R Packages</h2>
+<p>Open RStudio and run the following commands to install all necessary packages:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install devtools for GitHub installations</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Core DataSHIELD packages</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"DSI"</span>, <span class="at">repos =</span> <span class="fu">c</span>(<span class="st">"https://cran.obiba.org"</span>, <span class="st">"https://cloud.r-project.org"</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"DSOpal"</span>, <span class="at">repos =</span> <span class="fu">c</span>(<span class="st">"https://cran.obiba.org"</span>, <span class="st">"https://cloud.r-project.org"</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"datashield/dsBaseClient"</span>, <span class="at">force =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Opal administration packages</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"opalr"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># DataSHIELD helper packages</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"timcadman/ds-helper"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># dsOMOP packages</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'isglobal-brge/dsOMOPClient'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'isglobal-brge/dsOMOPHelper'</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical analysis packages</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"metafor"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic data manipulation (if not already installed)</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"readr"</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"knitr"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Additional packages for advanced workshops (optional)</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"dsOmicsClient"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-3-verify-installation" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-verify-installation">Step 3: Verify Installation</h2>
+<p>After installing all packages, verify that everything is working correctly:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DSI)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DSOpal)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dsBaseClient)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dsHelper)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dsOMOPClient)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dsOMOPHelper)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metafor)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Check versions</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If all libraries load without errors, you’re ready to start the workshop!</p>
+</section>
+<section id="getting-help" class="level2">
+<h2 class="anchored" data-anchor-id="getting-help">Getting Help</h2>
+<p>If you continue to experience issues:</p>
+<ul>
+<li>Check the <a href="https://data2knowledge.atlassian.net/wiki/spaces/DSDEV/overview">DataSHIELD documentation</a></li>
+<li>Visit the <a href="https://datashield.discourse.group/">DataSHIELD forums</a></li>
+<li>Contact the workshop organizers</li>
+</ul>
+<hr>
+<p><strong>Next:</strong> Once setup is complete, proceed to the <a href="./datashield_slides.html">DataSHIELD Introduction</a> to begin the workshop.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -593,6 +488,67 @@ GENDER          0.6315685 0.797650197    0.338328242      1.88055787</code></pre
       icon: icon
     };
     anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
         var filterRegex = new RegExp('/' + window.location.host + '/');
