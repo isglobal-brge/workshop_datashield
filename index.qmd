@@ -38,7 +38,7 @@ OHDSI (Observational Health Data Sciences and Informatics) is a global, open-sci
 :::
 
 ::: {.column width="40%"}
-![](fig/cdm54.png){.img-fluid .rounded alt="OMOP CDM high-level schema"}
+![](images/cdm54.png){.img-fluid .rounded alt="OMOP CDM high-level schema"}
 :::
 ::::
 
