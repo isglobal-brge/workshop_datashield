@@ -1,0 +1,80 @@
+---
+title: "Contact"
+toc: false
+---
+
+```{=html}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+```
+
+**Feel free to contact us with any questions, suggestions or comments!**
+
+::: {.container .mt-5}
+
+```{=html}
+<div class="contact-grid">
+  <div class="contact-card">
+    <div class="contact-card__header">
+      <img src="images/jr.jpg" alt="Juan R González" class="contact-card__photo" onerror="this.style.display='none'">
+      <div class="contact-card__avatar" aria-hidden="true">
+        <i class="bi bi-person-circle"></i>
+      </div>
+    </div>
+    <div class="contact-card__body">
+      <h3 class="contact-card__name">Juan R González, PhD</h3>
+      <p class="contact-card__title">Full Professor</p>
+      <p class="contact-card__affiliation">Barcelona Institute for Global Health (ISGlobal)</p>
+
+      <div class="contact-card__actions">
+        <a class="contact-social" href="mailto:juanr.gonzalez@isglobal.org" aria-label="Email Juan" title="Email">
+          <i class="bi bi-envelope-fill"></i>
+        </a>
+        <a class="contact-social" href="https://www.linkedin.com/in/juan-r-gonzalez-50a808171" target="_blank" rel="noopener" aria-label="LinkedIn Juan" title="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a class="contact-social" href="https://orcid.org/0000-0003-3267-2146" target="_blank" rel="noopener" aria-label="ORCID Juan" title="ORCID">
+          <i class="fab fa-orcid"></i>
+        </a>
+        <a class="contact-social" href="https://github.com/isglobal-brge" target="_blank" rel="noopener" aria-label="GitHub Juan" title="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-card__header">
+      <img src="images/david.jpeg" alt="David Sarrat González" class="contact-card__photo" onerror="this.style.display='none'">
+      <div class="contact-card__avatar" aria-hidden="true">
+        <i class="bi bi-person-circle"></i>
+      </div>
+    </div>
+    <div class="contact-card__body">
+      <h3 class="contact-card__name">David Sarrat González</h3>
+      <p class="contact-card__title">PhD Student</p>
+      <p class="contact-card__affiliation">Barcelona Institute for Global Health (ISGlobal)</p>
+
+      <div class="contact-card__actions">
+        <a class="contact-social" href="mailto:david.sarrat@isglobal.org" aria-label="Email David" title="Email">
+          <i class="bi bi-envelope-fill"></i>
+        </a>
+        <a class="contact-social" href="https://www.linkedin.com/in/davidsarratgonzalez" target="_blank" rel="noopener" aria-label="LinkedIn David" title="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a class="contact-social" href="https://davidsarratgonzalez.github.io" target="_blank" rel="noopener" aria-label="David's Website" title="Website">
+          <i class="bi bi-globe"></i>
+        </a>
+        <a class="contact-social" href="https://orcid.org/0000-0002-9064-3303" target="_blank" rel="noopener" aria-label="ORCID David" title="ORCID">
+          <i class="fab fa-orcid"></i>
+        </a>
+        <a class="contact-social" href="https://github.com/davidsarratgonzalez" target="_blank" rel="noopener" aria-label="GitHub David" title="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+:::
+

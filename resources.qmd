@@ -1,0 +1,31 @@
+---
+title: "Resources"
+---
+
+The following resources may be of interest for those wanting to learn more about DataSHIELD and OMOP CDM:
+
+## Workshop Materials
+
+- [Resources Workshop Repository](https://github.com/obiba/resources-workshop)
+
+## DataSHIELD
+
+- [DataSHIELD Beginners Tutorial](https://data2knowledge.atlassian.net/wiki/spaces/DSDEV/pages/931069953/Beginners+Tutorial+DataSHIELD+v6.1)
+- [dsTidyverseClient vignette](https://cran.r-project.org/web/packages/dsTidyverseClient/vignettes/dstidyverse.html)
+- [DataSHIELD Publications](https://papers.datashield.org)
+
+## Resources and Opal Integration
+
+- [resourcer: Examples of resources](https://isglobal-brge.github.io/resource_bookdown/resourcer.html#examples-of-resources)
+
+## OHDSI / OMOP CDM
+
+- [The Book of OHDSI – Common Data Model](https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html)
+- [The Book of OHDSI – Standardized Vocabularies](https://ohdsi.github.io/TheBookOfOhdsi/StandardizedVocabularies.html)
+
+## dsOMOP
+
+- [dsOMOP website](https://isglobal-brge.github.io/dsOMOP/)
+- [dsOMOPClient vignette](https://isglobal-brge.github.io/dsOMOPClient/)
+- [dsOMOPHelper vignette](https://isglobal-brge.github.io/dsOMOPHelper/)
+- [dsOMOP paper](https://doi.org/10.1093/bioinformatics/btaf286)

@@ -27,6 +27,10 @@ website:
             href: dsomop_slides.qmd
           - text: "Practical Exercise"
             href: dsomop.Rmd
+      - text: "Resources"
+        href: resources.qmd
+      - text: "Contact"
+        href: contact.qmd
 
 format:
   html:

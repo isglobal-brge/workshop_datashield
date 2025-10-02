@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>DataSHIELD Workshop</title>
+<title>Resources – DataSHIELD Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -256,7 +256,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -298,7 +298,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./resources.html"> 
+    <a class="nav-link active" href="./resources.html" aria-current="page"> 
 <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item">
@@ -322,15 +322,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#combining-datashield-with-omop-cdm" id="toc-combining-datashield-with-omop-cdm" class="nav-link active" data-scroll-target="#combining-datashield-with-omop-cdm">Combining DataSHIELD with OMOP CDM</a>
-  <ul class="collapse">
-  <li><a href="#what-is-datashield" id="toc-what-is-datashield" class="nav-link" data-scroll-target="#what-is-datashield">What is DataSHIELD?</a></li>
-  <li><a href="#what-are-ohdsi-and-the-omop-cdm" id="toc-what-are-ohdsi-and-the-omop-cdm" class="nav-link" data-scroll-target="#what-are-ohdsi-and-the-omop-cdm">What are OHDSI and the OMOP CDM?</a></li>
-  <li><a href="#what-is-dsomop" id="toc-what-is-dsomop" class="nav-link" data-scroll-target="#what-is-dsomop">What is dsOMOP?</a></li>
-  </ul></li>
-  <li><a href="#federated-standardized-analysis" id="toc-federated-standardized-analysis" class="nav-link" data-scroll-target="#federated-standardized-analysis">Federated standardized analysis</a></li>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
-  <li><a href="#workshop-content" id="toc-workshop-content" class="nav-link" data-scroll-target="#workshop-content">Workshop content</a></li>
+  <li><a href="#workshop-materials" id="toc-workshop-materials" class="nav-link active" data-scroll-target="#workshop-materials">Workshop Materials</a></li>
+  <li><a href="#datashield" id="toc-datashield" class="nav-link" data-scroll-target="#datashield">DataSHIELD</a></li>
+  <li><a href="#resources-and-opal-integration" id="toc-resources-and-opal-integration" class="nav-link" data-scroll-target="#resources-and-opal-integration">Resources and Opal Integration</a></li>
+  <li><a href="#ohdsi-omop-cdm" id="toc-ohdsi-omop-cdm" class="nav-link" data-scroll-target="#ohdsi-omop-cdm">OHDSI / OMOP CDM</a></li>
+  <li><a href="#dsomop" id="toc-dsomop" class="nav-link" data-scroll-target="#dsomop">dsOMOP</a></li>
   </ul>
 </nav>
     </div>
@@ -340,7 +336,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">DataSHIELD Workshop</h1>
+<h1 class="title">Resources</h1>
 </div>
 
 
@@ -357,107 +353,42 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="combining-datashield-with-omop-cdm" class="level2">
-<h2 class="anchored" data-anchor-id="combining-datashield-with-omop-cdm">Combining DataSHIELD with OMOP CDM</h2>
-<p><strong>Welcome to the workshop where federated data analysis meets standardized clinical data!</strong></p>
-<p>This hands-on session will introduce you to the combination of DataSHIELD’s federated analysis capabilities and the OMOP Common Data Model (CDM) for clinical databases using the dsOMOP framework.</p>
-<section id="what-is-datashield" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-datashield">What is DataSHIELD?</h3>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>DataSHIELD is an open-source platform that enables analysis of sensitive data without sharing individual-level records. Analyses are executed where the data reside; only vetted, non-disclosive summaries are returned. This privacy-by-design approach combines:</p>
+<p>The following resources may be of interest for those wanting to learn more about DataSHIELD and OMOP CDM:</p>
+<section id="workshop-materials" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-materials">Workshop Materials</h2>
 <ul>
-<li>Robust disclosure control on outputs</li>
-<li>Role-based governance and auditable workflows</li>
-<li>Secure, federated compute across institutions</li>
-</ul>
-<p>This makes DataSHIELD ideal when regulations, ethics, or governance restrict data movement but collaborative analysis is essential.</p>
-</div><div class="column" style="width:40%;">
-<p><img src="images/datashield.jpg" class="img-fluid rounded" alt="High-level schematic of DataSHIELD federated analysis with disclosure controls"></p>
-</div>
-</div>
-<p>DataSHIELD is also a community-driven, open-source initiative with contributors from universities, research institutes, and health systems. The community steers method development, governance rules, disclosure controls, and software evolution through open collaboration, ensuring transparency, interoperability, and best practices for secure multi-site analytics.</p>
-</section>
-<section id="what-are-ohdsi-and-the-omop-cdm" class="level3">
-<h3 class="anchored" data-anchor-id="what-are-ohdsi-and-the-omop-cdm">What are OHDSI and the OMOP CDM?</h3>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p>The OHDSI community maintains the OMOP Common Data Model (CDM), a widely adopted standard that harmonizes the structure and vocabularies of observational health data (EHRs, claims, registries). Standardization enables large-scale, reproducible analytics and consistency across diverse datasets.</p>
-<p>OHDSI (Observational Health Data Sciences and Informatics) is a global, open-science collaborative that develops data standards, vocabularies, methods, and software for observational health research. OHDSI fosters reproducible research, open tools, and shared best practices to scale evidence generation across diverse data networks.</p>
-</div><div class="column" style="width:40%;">
-<p><img src="images/cdm54.png" class="img-fluid rounded" alt="OMOP CDM high-level schema"></p>
-</div>
-</div>
-</section>
-<section id="what-is-dsomop" class="level3">
-<h3 class="anchored" data-anchor-id="what-is-dsomop">What is dsOMOP?</h3>
-<div class="columns">
-<div class="column" style="width:70%;">
-<p>dsOMOP is a suite of packages that connects OMOP CDM databases to DataSHIELD. It streamlines access to standardized tables and vocabularies under DataSHIELD’s privacy model so you can:</p>
-<ul>
-<li>Discover and explore OMOP CDM content securely</li>
-<li>Build cohorts and run cross-site summary queries</li>
-<li>Perform federated, standardized analyses on harmonized clinical data</li>
-</ul>
-</div><div class="column" style="width:30%;">
-<div class="text-end">
-<p><img src="images/dsomop_logo.png" class="img-fluid" width="120"></p>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="federated-standardized-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="federated-standardized-analysis">Federated standardized analysis</h2>
-<p>This combination of technologies enables powerful federated analysis with strong privacy guarantees:</p>
-<ul>
-<li><strong>Privacy by design</strong>: Individual-level data never leave the hosting institution.</li>
-<li><strong>Disclosure control</strong>: Automated safeguards prevent re-identification via output checks.</li>
-<li><strong>Security and governance</strong>: Role-based access, auditability, and institutional control.</li>
-<li><strong>Standardization</strong>: OMOP CDM ensures consistent structure and meaning across networks.</li>
-<li><strong>Reproducibility</strong>: Shared code and common semantics for comparable results.</li>
+<li><a href="https://github.com/obiba/resources-workshop">Resources Workshop Repository</a></li>
 </ul>
 </section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Before You Begin
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Make sure you have completed the <a href="./setup.html">Setup Instructions</a> to install R, RStudio, and all required packages.</p>
-</div>
-</div>
-</section>
-<section id="workshop-content" class="level2">
-<h2 class="anchored" data-anchor-id="workshop-content">Workshop content</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<section id="block-1-working-with-datashield" class="level3">
-<h3 class="anchored" data-anchor-id="block-1-working-with-datashield">Block 1 — Working with DataSHIELD</h3>
+<section id="datashield" class="level2">
+<h2 class="anchored" data-anchor-id="datashield">DataSHIELD</h2>
 <ul>
-<li><a href="./datashield_slides.html">Introduction Slides</a></li>
-<li><a href="./datashield_tables.html">Working with Tables</a></li>
-<li><a href="./datashield_resources.html">Working with Resources</a></li>
+<li><a href="https://data2knowledge.atlassian.net/wiki/spaces/DSDEV/pages/931069953/Beginners+Tutorial+DataSHIELD+v6.1">DataSHIELD Beginners Tutorial</a></li>
+<li><a href="https://cran.r-project.org/web/packages/dsTidyverseClient/vignettes/dstidyverse.html">dsTidyverseClient vignette</a></li>
+<li><a href="https://papers.datashield.org">DataSHIELD Publications</a></li>
 </ul>
-<p>Connect to remote nodes and manage sessions. Assign and aggregate safely without exposing rows. Run common statistics under disclosure thresholds. Understand privacy, security, and governance in practice.</p>
 </section>
-</div><div class="column" style="width:50%;">
-<section id="block-2-omop-cdm-via-dsomop" class="level3">
-<h3 class="anchored" data-anchor-id="block-2-omop-cdm-via-dsomop">Block 2 — OMOP CDM via dsOMOP</h3>
+<section id="resources-and-opal-integration" class="level2">
+<h2 class="anchored" data-anchor-id="resources-and-opal-integration">Resources and Opal Integration</h2>
 <ul>
-<li><a href="./dsomop_slides.html">Introduction Slides</a></li>
-<li><a href="./dsomop.html">Practical Exercise</a></li>
+<li><a href="https://isglobal-brge.github.io/resource_bookdown/resourcer.html#examples-of-resources">resourcer: Examples of resources</a></li>
 </ul>
-<p>Connect to OMOP CDM databases through DataSHIELD. Explore standardized tables and vocabularies. Build cohorts and run summary queries across sites. Perform federated, reproducible analyses on harmonized data.</p>
 </section>
-</div>
-</div>
+<section id="ohdsi-omop-cdm" class="level2">
+<h2 class="anchored" data-anchor-id="ohdsi-omop-cdm">OHDSI / OMOP CDM</h2>
+<ul>
+<li><a href="https://ohdsi.github.io/TheBookOfOhdsi/CommonDataModel.html">The Book of OHDSI – Common Data Model</a></li>
+<li><a href="https://ohdsi.github.io/TheBookOfOhdsi/StandardizedVocabularies.html">The Book of OHDSI – Standardized Vocabularies</a></li>
+</ul>
+</section>
+<section id="dsomop" class="level2">
+<h2 class="anchored" data-anchor-id="dsomop">dsOMOP</h2>
+<ul>
+<li><a href="https://isglobal-brge.github.io/dsOMOP/">dsOMOP website</a></li>
+<li><a href="https://isglobal-brge.github.io/dsOMOPClient/">dsOMOPClient vignette</a></li>
+<li><a href="https://isglobal-brge.github.io/dsOMOPHelper/">dsOMOPHelper vignette</a></li>
+<li><a href="https://doi.org/10.1093/bioinformatics/btaf286">dsOMOP paper</a></li>
+</ul>
 
 
 </section>
