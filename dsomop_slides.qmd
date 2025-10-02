@@ -1,0 +1,24 @@
+---
+title: "dsOMOP Introduction Slides"
+---
+
+## dsOMOP Workshop Slides
+
+View the slides below or download them for offline viewing.
+
+<div class="pdf-container">
+  <iframe src="dsomop_slides.pdf" width="100%" height="600px" style="border: 1px solid #ccc;">
+    Your browser does not support PDFs. Please download the PDF to view it.
+  </iframe>
+</div>
+
+<div style="margin-top: 20px;">
+  <a href="https://github.com/isglobal-brge/workshop_datashield/raw/main/dsomop_slides.pdf" class="btn btn-primary" download>
+    <i class="bi bi-download"></i> Download Slides (PDF)
+  </a>
+</div>
+
+---
+
+**Next:** Continue to [Practical Exercise](dsomop.Rmd) to start working with dsOMOP.
+

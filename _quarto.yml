@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: docs
+
+execute:
+  freeze: auto
+
+website:
+  title: "DataSHIELD Workshop"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "DataSHIELD Basics"
+        menu:
+          - text: "Slides"
+            href: datashield_slides.qmd
+          - text: "Working with Tables"
+            href: datashield_tables.Rmd
+          - text: "Working with Resources"
+            href: datashield_resources.Rmd
+      - text: "dsOMOP"
+        menu:
+          - text: "Slides"
+            href: dsomop_slides.qmd
+          - text: "Practical Exercise"
+            href: dsomop.Rmd
+
+format:
+  html:
+    theme: 
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    code-copy: true
+    code-fold: false
+

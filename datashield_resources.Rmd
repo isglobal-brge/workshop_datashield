@@ -1,0 +1,151 @@
+---
+title: "DataSHIELD Workshop: Data Science Without Borders"
+freeze: true
+format: 
+  html:
+    code-copy: false
+execute:
+  eval: true
+  echo: true
+  warning: false
+  error: true
+---
+
+# Analysis using the `resources`
+
+For more examples and detailed information about working with resources in DataSHIELD, please refer to the [Resources Workshop Repository](https://github.com/obiba/resources-workshop).
+
+Now, let us illustrate a similar analysis of the previous example using CNSIM datasets but having the data as a resource. Now the resources are available in a project called `RSRC` (see https://opal-demo.obiba.org/#/project/RSRC/resources). Now, we write all the require code in a single chunk:
+
+```{r cnsim_multiple}
+library(DSOpal)
+library(dsBaseClient)
+
+# prepare login data and resources to assign
+builder <- DSI::newDSLoginBuilder()
+builder$append(server = "study1", url = "https://opal-demo.obiba.org", 
+               user = "dsuser", password = "P@ssw0rd", 
+               resource = "RSRC.CNSIM1", profile = "default")
+#builder$append(server = "study2", url = "https://opal.isglobal.org/repo",
+#               user = "invited",  password = "12345678Aa@",, 
+#               resource = "CNSIM.CNSIM2", profile = "rock-inma")
+
+logindata <- builder$build()
+
+# login and assign resources
+conns <- datashield.login(logins = logindata, assign = TRUE, symbol = "res")
+
+# assigned objects are of class ResourceClient (and others)
+ds.class("res")
+
+# coerce ResourceClient objects to data.frames
+# (DataSHIELD config allows as.resource.data.frame() assignment function for the purpose of the demo)
+datashield.assign.expr(conns, symbol = "D", 
+                       expr = quote(as.resource.data.frame(res, strict = TRUE)))
+ds.class("D")
+ds.colnames("D")
+
+# do usual dsBase analysis
+ds.summary('D$LAB_HDL')
+
+# vector types are not necessarily the same depending on the data reader that was used
+ds.class('D$GENDER')
+ds.asFactor('D$GENDER', 'GENDER')
+ds.summary('GENDER')
+
+mod <- ds.glm("DIS_DIAB ~ LAB_TRIG + GENDER", data = "D" , family="binomial")
+mod$coeff
+
+
+datashield.logout(conns)
+```
+
+# Survival analysis
+
+Survival analysis can be performed in DataSHIELD using `dsSurvival` package 
+(paper [https://bmcresnotes.biomedcentral.com/articles/10.1186/s13104-022-06085-1](https://bmcresnotes.biomedcentral.com/articles/10.1186/s13104-022-06085-1))
+
+Install the package which allows you to perform survival analysis in DataSHIELD
+
+```{r install_dsSurvivalClient, eval=FALSE}
+devtools::install_github("neelsoumya/dsSurvivalClient")
+```
+
+Login to the Opal server which is having CORDELIA data. 
+IMPORTANT: In order to have an Opal instance with dsSurvival package available, 
+use the profile "lemon-donkey"
+
+Now, read how to perform surival analysis using DataSHIELD in this vignette
+
+[https://neelsoumya.github.io/dsSurvivalbookdown/](https://neelsoumya.github.io/dsSurvivalbookdown/)
+  
+TASK: Perform survival analysis of CORDELIA dataset where the time until death 
+is in the variable called "todeath" and censoring variable is in the variable 
+"death" to investigate whether smoking (variable "fumador") is associated or not
+with mortality after adjusting for age (variable "edad")
+NOTE: follow all steps in the vignette.
+
+# Omic data analysis
+
+Please refer to the [Omic data analysis resource](https://isglobal-brge.github.io/resource_bookdown/Omic.html).
+
+# Exercise: CORDELIA Project Analysis
+
+We have a database from the CORDELIA Project (https://cordeliaproject.net/), which collects clinical, demographic, and laboratory information about participants in order to study cardiovascular and metabolic risk factors. The dataset contains the following variables:
+
+- **cohorte** – Cohort (study group the subject belongs to)
+- **codigo** – Code / ID (unique identifier for each subject)
+- **fec_inc** – Date of inclusion (enrollment date in the study)
+- **edad** – Age
+- **sexo** – Sex (male/female)
+- **est_civ** – Marital status
+- **niv_cult** – Educational level
+- **act_fis** – Physical activity
+- **fumador** – Smoker (yes/no)
+- **HTA** – Hypertension (diagnosis)
+- **HTA_TTO** – Hypertension treatment (yes/no)
+- **hipercol** – Hypercholesterolemia (diagnosis)
+- **col_tto** – Cholesterol treatment (yes/no)
+- **diabetes** – Diabetes (diagnosis)
+- **diab_tto** – Diabetes treatment (yes/no)
+- **insulin** – Insulin treatment (yes/no)
+- **diab_ado_ins** – Diabetes treated with oral antidiabetics and insulin
+- **peso** – Weight (kg)
+- **talla** – Height (cm or m)
+- **cintura** – Waist circumference (cm)
+- **IMC** – Body Mass Index (BMI)
+- **FC** – Heart rate (beats per minute)
+- **PAS_1** – Systolic blood pressure (1st measurement)
+- **PAS_2** – Systolic blood pressure (2nd measurement)
+- **PAD_1** – Diastolic blood pressure (1st measurement)
+- **PAD_2** – Diastolic blood pressure (2nd measurement)
+- **col_tot** – Total cholesterol
+- **hdl** – HDL cholesterol
+- **ldl** – LDL cholesterol
+- **trig** – Triglycerides
+- **creat** – Creatinine
+- **filt_glomer** – Glomerular filtration rate (GFR)
+- **glu** – Blood glucose
+- **exitusSeg** – Death during follow-up (yes/no)
+- **FechaExit_Seg** – Date of death during follow-up
+- **filt_glomer_CKD** – Glomerular filtration rate classified for chronic kidney disease (CKD stages)
+- **HTA_tot** – Hypertension (overall variable, combining diagnosis/treatment)
+- **diabetes_tot** – Diabetes (overall variable, combining diagnosis/treatment)
+- **todeath** – Time to death (follow-up time until death)
+- **death** – Death (event indicator, yes/no)
+
+The data is stored on an Opal server within a project named `CORDELIA`, under the resource `cordelia45`, with access credentials provided as follows:
+
+- Server: "https://opal-demo.obiba.org"
+- User: "dsuser"
+- Password: "P@ssw0rd"
+
+## Tasks
+
+Complete the following tasks:
+
+1. Load the data into a DataSHIELD session
+2. Summarize the variable `IMC`
+3. Create a histogram of the variable `trig`
+4. Assess whether `diabetes` is associated with `hipercol`, `IMC`, `hdl` and `col_tot` in separate univariate models
+5. Estimate a multivariate model for the variable `diabetes`, including only those variables that were significant in the univariate models

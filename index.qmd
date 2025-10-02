@@ -1,0 +1,93 @@
+---
+title: "DataSHIELD Workshop"
+---
+
+## Combining DataSHIELD with OMOP CDM
+
+**Welcome to the workshop where federated data analysis meets standardized clinical data!** 
+
+This hands-on session will introduce you to the combination of DataSHIELD's federated analysis capabilities and the OMOP Common Data Model (CDM) for clinical databases using the dsOMOP framework.
+
+### What is DataSHIELD?
+
+:::: {.columns}
+::: {.column width="60%"}
+DataSHIELD is an open-source platform that enables analysis of sensitive data without sharing individual-level records. Analyses are executed where the data reside; only vetted, non-disclosive summaries are returned. This privacy-by-design approach combines:
+
+- Robust disclosure control on outputs
+- Role-based governance and auditable workflows
+- Secure, federated compute across institutions
+
+This makes DataSHIELD ideal when regulations, ethics, or governance restrict data movement but collaborative analysis is essential.
+:::
+
+::: {.column width="40%"}
+![](images/datashield.jpg){.img-fluid .rounded alt="High-level schematic of DataSHIELD federated analysis with disclosure controls"}
+:::
+::::
+
+DataSHIELD is also a community-driven, open-source initiative with contributors from universities, research institutes, and health systems. The community steers method development, governance rules, disclosure controls, and software evolution through open collaboration, ensuring transparency, interoperability, and best practices for secure multi-site analytics.
+
+### What are OHDSI and the OMOP CDM?
+
+:::: {.columns}
+::: {.column width="60%"}
+The OHDSI community maintains the OMOP Common Data Model (CDM), a widely adopted standard that harmonizes the structure and vocabularies of observational health data (EHRs, claims, registries). Standardization enables large-scale, reproducible analytics and consistency across diverse datasets.
+
+OHDSI (Observational Health Data Sciences and Informatics) is a global, open-science collaborative that develops data standards, vocabularies, methods, and software for observational health research. OHDSI fosters reproducible research, open tools, and shared best practices to scale evidence generation across diverse data networks.
+:::
+
+::: {.column width="40%"}
+![](fig/cdm54.png){.img-fluid .rounded alt="OMOP CDM high-level schema"}
+:::
+::::
+
+### What is dsOMOP?
+
+:::: {.columns}
+::: {.column width="70%"}
+dsOMOP is a suite of packages that connects OMOP CDM databases to DataSHIELD. It streamlines access to standardized tables and vocabularies under DataSHIELD's privacy model so you can:
+
+- Discover and explore OMOP CDM content securely
+- Build cohorts and run cross-site summary queries
+- Perform federated, standardized analyses on harmonized clinical data
+:::
+
+::: {.column width="30%"}
+::: {.text-end}
+![](images/dsomop_logo.png){.img-fluid width=120px}
+:::
+:::
+::::
+
+## Federated standardized analysis
+
+This combination of technologies enables powerful federated analysis with strong privacy guarantees:
+
+- **Privacy by design**: Individual-level data never leave the hosting institution.
+- **Disclosure control**: Automated safeguards prevent re-identification via output checks.
+- **Security and governance**: Role-based access, auditability, and institutional control.
+- **Standardization**: OMOP CDM ensures consistent structure and meaning across networks.
+- **Reproducibility**: Shared code and common semantics for comparable results.
+
+## Workshop content
+
+:::: {.columns}
+::: {.column width="50%"}
+### Block 1 — Working with DataSHIELD
+- [Introduction Slides](datashield_slides.qmd)
+- [Working with Tables](datashield_tables.Rmd)
+- [Working with Resources](datashield_resources.Rmd)
+
+Connect to remote nodes and manage sessions. Assign and aggregate safely without exposing rows. Run common statistics under disclosure thresholds. Understand privacy, security, and governance in practice.
+:::
+
+::: {.column width="50%"}
+### Block 2 — OMOP CDM via dsOMOP
+- [Introduction Slides](dsomop_slides.qmd)
+- [Practical Exercise](dsomop.Rmd)
+
+Connect to OMOP CDM databases through DataSHIELD. Explore standardized tables and vocabularies. Build cohorts and run summary queries across sites. Perform federated, reproducible analyses on harmonized data.
+:::
+::::
+

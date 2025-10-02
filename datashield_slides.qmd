@@ -1,0 +1,24 @@
+---
+title: "DataSHIELD Introduction Slides"
+---
+
+## DataSHIELD Workshop Slides
+
+View the slides below or download them for offline viewing.
+
+<div class="pdf-container">
+  <iframe src="datashield_slides.pdf" width="100%" height="600px" style="border: 1px solid #ccc;">
+    Your browser does not support PDFs. Please download the PDF to view it.
+  </iframe>
+</div>
+
+<div style="margin-top: 20px;">
+  <a href="https://github.com/isglobal-brge/workshop_datashield/raw/main/datashield_slides.pdf" class="btn btn-primary" download>
+    <i class="bi bi-download"></i> Download Slides (PDF)
+  </a>
+</div>
+
+---
+
+**Next:** Continue to [Working with Tables](datashield_tables.Rmd) to start the hands-on exercises.
+
