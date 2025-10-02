@@ -13,7 +13,7 @@ website:
         href: index.qmd
       - text: "Setup"
         href: setup.qmd
-      - text: "DataSHIELD Basics"
+      - text: "DataSHIELD"
         menu:
           - text: "Slides"
             href: datashield_slides.qmd
