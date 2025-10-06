@@ -8,8 +8,13 @@ execute:
   eval: true
   echo: true
   warning: false
+  message: false
   error: true
 ---
+
+<a href="https://github.com/isglobal-brge/workshop_datashield/raw/main/datashield_resources.R" class="btn btn-primary btn-sm" download>
+<i class="bi bi-download"></i> Download R Script
+</a>
 
 # Analysis using the `resources`
 

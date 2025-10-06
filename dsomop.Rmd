@@ -5,7 +5,12 @@ format:
     code-copy: false
 execute:
   warning: false
+  message: false
 ---
+
+<a href="https://github.com/isglobal-brge/workshop_datashield/raw/main/dsomop.R" class="btn btn-primary btn-sm" download>
+<i class="bi bi-download"></i> Download R Script
+</a>
 
 In this lesson, we will learn how to:
 
